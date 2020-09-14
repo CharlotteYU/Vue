@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vue"
+    }
+  },
+  "defaultProject": "vue",
+  "cli": {
+    "analytics": "54366a26-60b9-4119-aba4-483b3e5adb90"
+  }
 }

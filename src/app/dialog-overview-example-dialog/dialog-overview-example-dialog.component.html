@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Change title</h1>
+<mat-form-field><input matInput [(ngModel)]="data.message"></mat-form-field>
+    
+
+<div mat-dialog-actions>
+  <button mat-button  (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.message" cdkFocusInitial>Save</button>
+</div>
+

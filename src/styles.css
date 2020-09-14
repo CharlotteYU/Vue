@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 15px;
+    background-color: #f2f3f5;
+    margin: 0;
+    padding-top: 55px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vue';
+
+  mode: number = 1;
+  changeMode(id: number): void {
+    this.mode = id;
+  }
 }

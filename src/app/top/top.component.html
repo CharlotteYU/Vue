@@ -1,0 +1,47 @@
+    <div class="news-list-nav">
+        <a *ngIf = 'page ===1' class = 'disabled'><<</a>
+        <a *ngIf = 'page >1' routerLink = '/top/1' (click) = 'updateOne()'><<</a>
+        <a *ngIf = 'page === 1' class = 'disabled' >prev</a>
+        <a *ngIf = 'page >1' routerLink = '/top/{{page-1}}' (click) = 'updateMinus()' >prev</a>
+        <span>{{page}}/{{len}}</span>
+        <a *ngIf = 'page === len' class = 'disabled' >more</a>
+        <a *ngIf = 'len>page' routerLink = '/top/{{page+1}}' (click) = 'updatePlus()'>more</a>
+        <a *ngIf = 'page === len' class = 'disabled'>>></a>
+        <a *ngIf = 'len>page' routerLink = '/top/{{len}}' (click) = 'updateLast()'>>></a>
+    </div>
+
+    <ul class = "board">
+        <li class = "news-item" *ngFor = 'let message of messages'>
+            <span>{{getIndex(message.id)}}</span>
+            <span class = "like"><button class = "changeTitle"(click) = 'plusOne(message.id)'>{{message.likeNumber}}</button></span>
+            <span class = 'title'>
+                <a href = '{{message.link}}' target = '_blank' rel='noopener'>
+                    {{message.title}}
+                </a>
+            </span>
+            <span class = 'meta'> ({{mainSite}})</span>
+            <button mat-raised-button (click)="openDialog(message.id)"><img class = 'img' src="../../assets/img/timg.jpg"></button>
+            <br>
+            <span class = 'meta'>
+                <span class = 'by'> by {{message.author}}</span>
+                <span class = 'time'> 
+                    {{this.updateTime(message.id)}}
+                    <ng-container *ngIf = "this.day">
+                        <ng-container *ngIf = 'this.day ===1'>{{this.day}} day ago</ng-container>
+                        <ng-container *ngIf = 'this.day !==1'>{{this.day}} days ago</ng-container>
+                    </ng-container>
+                    <ng-container *ngIf = 'this.day === 0 && this.hour!==0'>
+                        <ng-container *ngIf = 'this.hour ===1'>{{this.hour}} hour ago</ng-container>
+                        <ng-container *ngIf = 'this.hour !==1'>{{this.hour}} hours ago</ng-container>
+                    </ng-container>
+                    <ng-container *ngIf = 'this.day === 0 && this.hour===0&& this.minute !== 0'>
+                        <ng-container *ngIf = 'this.minute ===1'>{{this.minute}} minute ago</ng-container>
+                        <ng-container *ngIf = 'this.minute !==1'>{{this.minute}} minutes ago</ng-container>
+                    </ng-container>
+                    <ng-container *ngIf = 'this.day === 0 && this.hour===0&& this.minute === 0'>now</ng-container>
+                </span>
+                <span class = 'comment'>  | {{message.numberComment}} comments</span>
+            </span>
+        </li>
+    </ul>
+
